@@ -89,5 +89,46 @@ public class Player {
 		}
 
 		//どう攻撃するかを選択
+		public void setChoice() {
+			do {
+				System.out.println("何でたたかう？");
+				System.out.println("剣でこうげき：１　たいあたり：２");
+			} while (!isNumber2());
+		}
+
+		private boolean isNumber2() {
+			//3回以上間違えたら強制的にたいあたりが選択される
+			if(count < 3) {
+				try {
+					Scanner scan = new Scanner(System.in);
+					this.choice = scan.nextInt();
+					if (!(choice == 1 || choice == 2)) {
+						System.out.println("剣でこうげき：１　か　たいあたり：２　を選んでね！");
+						count++;
+						return false;
+					}
+					return true;
+				}catch (InputMismatchException e) {
+					System.out.println("数値を入力してね！");
+					count++;
+					return false;
+				}
+			}else {
+				this.choice = 2;
+				return true;
+			}
+		}
+
+		//攻撃の名称を返す
+		public String choiceName() {
+			String choiceName = null;
+			if(this.choice == 1) choiceName = "剣でこうげき!";
+			if(this.choice == 2) choiceName = "たいあたりでこうげき!";
+			return choiceName;
+		}
+
+		public int choice() {
+			return this.choice;
+		}
 
 }
