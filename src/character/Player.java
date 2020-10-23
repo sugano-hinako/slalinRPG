@@ -24,7 +24,7 @@ public class Player {
 	}
 
 	public void swordAttack(Monster m) {
-		int swordDamage = rand.nextInt(20) * 10 + 45;
+		int swordDamage = rand.nextInt(20)+ 45;
 		System.out.println(this.name + "は剣で切りつけた！");
 		System.out.println(m.name + "に" + swordDamage + "ダメージを与えた!");
 		System.out.println("");
@@ -32,7 +32,7 @@ public class Player {
 	}
 
 	public void attack(Monster m) {
-		int attackDamage = rand.nextInt(20) * 10 + 25;
+		int attackDamage = rand.nextInt(20) + 25;
 		System.out.println(this.name + "は体当たりした！");
 		System.out.println(m.name + "に" + attackDamage + "ダメージを与えた!");
 		System.out.println("");
