@@ -6,15 +6,15 @@ public class Momonjya extends Monster {
 	Random rand = new Random();
 
 	public Momonjya() {
-		this.name = "謎のももんじゃ";
-		this.hp = 774;
 		this.individual = 'X';
+		this.name = "謎のももんじゃ"+individual;
+		this.hp = 774;
 	}
 
 	public Momonjya(char individual) {
-		this.name = "ももんじゃ";
-		this.hp = 138;
 		this.individual = individual;
+		this.name = "ももんじゃ"+individual;
+		this.hp = 138;
 	}
 
 	public void attack(Player p) {

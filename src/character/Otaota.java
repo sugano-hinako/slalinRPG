@@ -6,15 +6,17 @@ public class Otaota extends Monster{
 	Random rand = new Random();
 
 	public Otaota() {
-		this.name = "謎のオタオタ";
-		this.hp = 774;
+
 		this.individual = 'X';
+		this.name = "謎のオタオタ"+individual;
+		this.hp = 774;
 	}
 
 	public Otaota(char individual) {
-		this.name = "オタオタ";
-		this.hp = 198;
+
 		this.individual = individual;
+		this.name = "オタオタ"+individual;
+		this.hp = 198;
 	}
 
 	public void attack(Player p) {
