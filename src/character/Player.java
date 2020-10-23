@@ -41,9 +41,9 @@ public class Player {
 	}
 
 	//ここで入れた数値によってPlayerが戦うのか逃げるのか選択する
-		private int action; //こうげきorにげる
-		private int choice; //剣or体当たり
-		private int count = 0;
+		public int action; //こうげきorにげる
+		public int choice; //剣or体当たり
+		public int count = 0;
 
 		//何をするか指定
 		public void setAction() {
@@ -89,7 +89,7 @@ public class Player {
 		}
 
 		//どう攻撃するかを選択
-		public void setChoice() {
+		public void setChoice(){
 			do {
 				System.out.println("何でたたかう？");
 				System.out.println("剣でこうげき：１　たいあたり：２");
@@ -129,6 +129,46 @@ public class Player {
 
 		public int choice() {
 			return this.choice;
+		}
+
+		//プレイヤーとモンスター's
+		Momonjya mo = new Momonjya('A');
+		Otaota ota = new Otaota('∞');
+		public int chMonster;
+
+		//どちらのモンスターにこうげきするか決める
+		public void choiceMonster() {
+			do {
+				System.out.println("どのモンスターをこうげきする？");
+				System.out.println("▼" + mo.name + "：１" + "  " + "▼" +ota.name + "：２");
+			} while (!isNumber3());
+		}
+
+		private boolean isNumber3() {
+			//3回以上間違えたら強制的にももんじゃが選択される
+			if(count < 3) {
+				try {
+					Scanner scan = new Scanner(System.in);
+					this.chMonster = scan.nextInt();
+					if (!(chMonster == 1 || chMonster == 2)) {
+						System.out.println(mo.name + "：１　か" + ota.name + "：２　を選んでね！");
+						count++;
+						return false;
+					}
+					return true;
+				}catch (InputMismatchException e) {
+					System.out.println("数値を入力してね！");
+					count++;
+					return false;
+				}
+			}else {
+				this.chMonster = 2;
+				return true;
+			}
+		}
+
+		public int chMonster() {
+			return this.chMonster;
 		}
 
 }
