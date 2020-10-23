@@ -28,6 +28,20 @@ public class Rule {
 				pl.setChoice();
 				pl.choiceName();
 				pl.choice();
+				if(pl.choice == 1) {
+					pl.swordAttack(mo);
+				}else if(pl.choice == 2) {
+					pl.attack(mo);
+				}
+			}else if(pl.chMonster == 2) {
+				pl.setChoice();
+				pl.choiceName();
+				pl.choice();
+				if(pl.choice == 1) {
+					pl.swordAttack(ota);
+				}else if(pl.choice == 2) {
+					pl.attack(ota);
+				}
 			}
 		}
 	}
