@@ -169,7 +169,7 @@ public class Player {
 			return this.chMonster;
 		}
 
-		//TODO モンスターのhpが0だった場合攻撃できない仕様にしたい
+		//
 		//TODO HPを0以下（マイナス）にできない仕様にしたい
 
 }
