@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Scanner;
+
 import character.Momonjya;
 import character.Otaota;
 import character.Player;
@@ -15,12 +17,14 @@ public class GameControll {
 		this.moOtaota = new Otaota();
 	}
 
+	Rule r = new Rule();
+	Scanner scan = new Scanner(System.in);
+
 	//ゲームスタート
 	public void start() {
-		System.out.println(this.plSlalin.name +"の冒険(簡易版)スタート！");
-		System.out.println("なにかがくさかげからとび出してきた！");
-		System.out.println("");
+		System.out.println(this.plSlalin.name + "の冒険(簡易版)スタート！");
+		scan.nextLine();
+		r.showMonster();
 	}
-
 
 }
