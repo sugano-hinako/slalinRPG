@@ -27,7 +27,6 @@ public class Player {
 		int swordDamage = rand.nextInt(20)+ 45;
 		System.out.println(this.name + "は剣で切りつけた！");
 		System.out.println(m.name + "に" + swordDamage + "ダメージを与えた!");
-		System.out.println("");
 		m.hp -= swordDamage;
 	}
 
@@ -35,7 +34,6 @@ public class Player {
 		int attackDamage = rand.nextInt(20) + 25;
 		System.out.println(this.name + "は体当たりした！");
 		System.out.println(m.name + "に" + attackDamage + "ダメージを与えた!");
-		System.out.println("");
 		m.hp -= attackDamage;
 
 	}
