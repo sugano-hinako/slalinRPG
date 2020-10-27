@@ -80,7 +80,7 @@ public class Turn {
 			scan.nextLine();
 			count ++;
 		}while(pl.hp >= 1 && ( mo.hp >= 1 || ota.hp >= 1));
-		//TODO プレイヤーのHPがなくなったら負け、モンスターのHPがなくなったら負けというようにしたい
+		//TODO プレイヤーのHPがなくなったら負け、モンスターのHPがなくなったら負けと表示して実行を終わらせたい
 
 	}
 
