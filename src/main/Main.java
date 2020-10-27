@@ -10,7 +10,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 
 		gc.start();
-		scan.nextLine();
+		gc.showMonster();
 		r.turnAction();
 
 	}
