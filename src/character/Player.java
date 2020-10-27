@@ -19,6 +19,7 @@ public class Player {
 	}
 
 	public void die() {
+		System.out.println(this.name + "は負けてしまった、");
 		System.out.println("その後" + this.name + "の姿を見たものは誰もいなかった…");
 		System.out.println("- GAMEOVER -");
 	}
