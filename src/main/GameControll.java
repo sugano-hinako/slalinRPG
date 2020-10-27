@@ -22,7 +22,10 @@ public class GameControll {
 
 	//ゲームスタート
 	public void start() {
-		System.out.println(this.plSlalin.name + "の冒険(簡易版)スタート！");
+		System.out.println(this.plSlalin.name + "の冒険スタート！");
+		System.out.println("※Enterキーを押すと進みます");
+		scan.nextLine();
+		System.out.println(this.plSlalin.name + "は歩いている");
 		scan.nextLine();
 		r.showMonster();
 	}
