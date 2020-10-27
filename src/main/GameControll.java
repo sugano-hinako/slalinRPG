@@ -28,6 +28,7 @@ public class GameControll {
 		System.out.println(this.plSlalin.name + "は歩いている");
 		scan.nextLine();
 	}
+
 	//なんのモンスターが出てきたか表示する
 	public void showMonster() {
 		System.out.println(this.moMomonjya.name + "　と　" + this.moOtaota.name + "がとびだしてきた！！");
