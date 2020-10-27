@@ -169,7 +169,4 @@ public class Player {
 			return this.chMonster;
 		}
 
-		//
-		//TODO HPを0以下（マイナス）にできない仕様にしたい
-
 }
