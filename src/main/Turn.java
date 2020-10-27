@@ -36,11 +36,13 @@ public class Turn {
 						pl.swordAttack(mo);
 						if(mo.hp <= 0) {
 							mo.hp = 0;
+							System.out.println(mo.name + "を倒した！");
 						}
 					} else if (pl.choice == 2) {
 						pl.attack(mo);
 						if(mo.hp <= 0) {
 							mo.hp = 0;
+							System.out.println(mo.name + "を倒した！");
 						}
 					}
 				} else if (pl.chMonster == 2) {
@@ -51,11 +53,13 @@ public class Turn {
 						pl.swordAttack(ota);
 						if(ota.hp <= 0) {
 							ota.hp = 0;
+							System.out.println(ota.name + "を倒した！");
 						}
 					} else if (pl.choice == 2) {
 						pl.attack(ota);
 						if(ota.hp <= 0) {
 							ota.hp = 0;
+							System.out.println(ota.name + "を倒した！");
 						}
 					}
 				}
@@ -78,9 +82,15 @@ public class Turn {
 			System.out.println(mo.name + "　HP：" + mo.hp + "　　 " + ota.name + "　HP：" + ota.hp);
 			System.out.println("---------------");
 			scan.nextLine();
-			count ++;
+			if(pl.hp == 0) {
+				pl.die();
+			}else if (mo.hp == 0 && ota.hp == 0) {
+				System.out.println(pl.name + "の勝利！");
+				System.exit(0);
+			}else {
+				count ++;
+			}
 		}while(pl.hp >= 1 && ( mo.hp >= 1 || ota.hp >= 1));
-		//TODO プレイヤーのHPがなくなったら負け、モンスターのHPがなくなったら負けと表示して実行を終わらせたい
 
 	}
 
