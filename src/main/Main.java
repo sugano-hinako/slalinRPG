@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Rule r = new Rule();
+		Turn r = new Turn();
 		GameControll gc = new GameControll();
 		Scanner scan = new Scanner(System.in);
 

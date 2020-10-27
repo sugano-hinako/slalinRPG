@@ -6,7 +6,7 @@ import character.Momonjya;
 import character.Otaota;
 import character.Player;
 
-public class Rule {
+public class Turn {
 	//今回登場のプレイヤーとモンスター's
 	Player pl = new Player();
 	Momonjya mo = new Momonjya('A');
@@ -14,11 +14,6 @@ public class Rule {
 
 	//
 	Scanner scan = new Scanner(System.in);
-
-	//なんのモンスターが出てきたか表示する
-	public void showMonster() {
-		System.out.println(mo.name + "　と　" + ota.name + "がとびだしてきた！！");
-	}
 
 	int count = 1;
 
@@ -39,8 +34,14 @@ public class Rule {
 					pl.choice();
 					if (pl.choice == 1) {
 						pl.swordAttack(mo);
+						if(mo.hp <= 0) {
+							mo.hp = 0;
+						}
 					} else if (pl.choice == 2) {
 						pl.attack(mo);
+						if(mo.hp <= 0) {
+							mo.hp = 0;
+						}
 					}
 				} else if (pl.chMonster == 2) {
 					pl.setChoice();
@@ -48,8 +49,14 @@ public class Rule {
 					pl.choice();
 					if (pl.choice == 1) {
 						pl.swordAttack(ota);
+						if(ota.hp <= 0) {
+							ota.hp = 0;
+						}
 					} else if (pl.choice == 2) {
 						pl.attack(ota);
+						if(ota.hp <= 0) {
+							ota.hp = 0;
+						}
 					}
 				}
 			} else if (pl.action == 2) {
@@ -57,11 +64,11 @@ public class Rule {
 				System.exit(0);
 			}
 			scan.nextLine();
-			if(mo.hp >= 0) {
+			if(mo.hp >= 1) {
 				mo.attack(pl);
 				scan.nextLine();
 			}
-			if(ota.hp >= 0) {
+			if(ota.hp >= 1) {
 				ota.attack(pl);
 				scan.nextLine();
 			}
@@ -72,8 +79,8 @@ public class Rule {
 			System.out.println("---------------");
 			scan.nextLine();
 			count ++;
-		}while(pl.hp >= 0 && ( mo.hp >= 0 || ota.hp >= 0));
-		//TODO プレイヤーのHPがなくなったら負けモンスターのHPがなくなったら負けというようにしたい
+		}while(pl.hp >= 1 && ( mo.hp >= 1 || ota.hp >= 1));
+		//TODO プレイヤーのHPがなくなったら負け、モンスターのHPがなくなったら負けというようにしたい
 
 	}
 

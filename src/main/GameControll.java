@@ -17,7 +17,7 @@ public class GameControll {
 		this.moOtaota = new Otaota();
 	}
 
-	Rule r = new Rule();
+	Turn r = new Turn();
 	Scanner scan = new Scanner(System.in);
 
 	//ゲームスタート
