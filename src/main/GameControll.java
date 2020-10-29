@@ -13,8 +13,8 @@ public class GameControll {
 
 	public GameControll() {
 		this.plSlalin = new Player();
-		this.moMomonjya = new Momonjya();
-		this.moOtaota = new Otaota();
+		this.moMomonjya = new Momonjya('A');
+		this.moOtaota = new Otaota('B');
 	}
 
 	Turn r = new Turn();
