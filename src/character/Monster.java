@@ -6,9 +6,9 @@ public abstract class Monster {
 	char individual;
 
 	//逃げるはどの敵も共通
-	public void run() {
-		System.out.println(this.name + "は逃げ出した！");
-		//return this.name + "は逃げ出した！";
+	public String run() {
+		//System.out.println(this.name + "は逃げ出した！");
+		return this.name + "は逃げ出した！";
 	}
 
 	//attack()を抽象メソッドとして宣言
