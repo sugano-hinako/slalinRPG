@@ -19,11 +19,12 @@ public class Otaota extends Monster{
 		this.hp = 198;
 	}
 
-	public void attack(Player p) {
+	public int attack(Player p) {
 		int da = rand.nextInt(40)+20;
 		System.out.println(this.name + "は尻尾で叩いた！");
 		System.out.println(p.name + "に" + da + "ダメージを与えた！");
 		p.hp -= da;
+		return da;
 	}
 
 }
