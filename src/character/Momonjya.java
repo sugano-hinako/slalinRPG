@@ -19,6 +19,7 @@ public class Momonjya extends Monster {
 
 	public void attack(Player p) {
 		//ダメージを設定 30~59のランダムなダメージ
+		/** コメントサンプル */
 		int da = rand.nextInt(20) + 30;
 		System.out.println(this.name + "は体当たりした！");
 		System.out.println(p.name + "に" + da + "ダメージを与えた！");

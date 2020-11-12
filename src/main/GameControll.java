@@ -5,7 +5,7 @@ import java.util.Scanner;
 import character.Momonjya;
 import character.Otaota;
 import character.Player;
-
+/** コメントサンプル */
 public class GameControll {
 	private Player plSlalin;
 	private Momonjya moMomonjya;
