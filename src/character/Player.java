@@ -14,14 +14,17 @@ public class Player {
 		this.hp = 893;
 	}
 
-	public void run() {
-		System.out.println(this.name + "は逃げ出した！");
+	public String run() {
+		//System.out.println(this.name + "は逃げ出した！");
+		return this.name + "は逃げ出した！";
 	}
 
-	public void die() {
-		System.out.println(this.name + "は負けてしまった、");
-		System.out.println("その後" + this.name + "の姿を見たものは誰もいなかった…");
-		System.out.println("- GAMEOVER -");
+	public String die() {
+		//System.out.println(this.name + "は負けてしまった、");
+		//System.out.println("その後" + this.name + "の姿を見たものは誰もいなかった…");
+		//System.out.println("- GAMEOVER -");
+		return this.name + "は負けてしまった、\nその後"
+		+ this.name + "の姿を見たものは誰もいなかった…\n- GAMEOVER -";
 	}
 
 	public void swordAttack(Monster m) {
@@ -45,19 +48,20 @@ public class Player {
 	public int count = 0;
 
 	//何をするか指定
-	public void setAction() {
+	public int setAction() {
+		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("何をしますか？");
 			System.out.println("たたかう：１　にげる：２");
-		} while (!isNumber());
+			return this.action = scan.nextInt();
+		} while (!isNumber(action));
 	}
 
-	private boolean isNumber() {
+	//テストするにあたってprivateからpublicに変更
+	public boolean isNumber(int count) {
 		//3回以上間違えたら強制的ににげるが選択される
 		if (count < 3) {
 			try {
-				Scanner scan = new Scanner(System.in);
-				this.action = scan.nextInt();
 				if (!(action == 1 || action == 2)) {
 					System.out.println("たたかう：１　か　にげる：２を選んでね！");
 					count++;
@@ -76,7 +80,7 @@ public class Player {
 	}
 
 	//行動の名称を返す
-	public String actionName() {
+	public String actionName(int action) {
 		String actionName = null;
 		if (this.action == 1)
 			actionName = "たたかう！";
@@ -91,9 +95,11 @@ public class Player {
 
 	//どう攻撃するかを選択
 	public void setChoice() {
+		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("何でたたかう？");
 			System.out.println("剣でこうげき：１　たいあたり：２");
+			this.choice = scan.nextInt();
 		} while (!isNumber2());
 	}
 
@@ -101,8 +107,6 @@ public class Player {
 		//3回以上間違えたら強制的にたいあたりが選択される
 		if (count < 3) {
 			try {
-				Scanner scan = new Scanner(System.in);
-				this.choice = scan.nextInt();
 				if (!(choice == 1 || choice == 2)) {
 					System.out.println("剣でこうげき：１　か　たいあたり：２　を選んでね！");
 					count++;
@@ -141,9 +145,11 @@ public class Player {
 
 	//どちらのモンスターにこうげきするか決める
 	public void choiceMonster() {
+		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("どのモンスターをこうげきする？");
 			System.out.println("▼" + mo.name + "：１" + "  " + "▼" + ota.name + "：２");
+			this.chMonster = scan.nextInt();
 		} while (!isNumber3());
 	}
 
@@ -151,8 +157,6 @@ public class Player {
 		//3回以上間違えたら強制的にももんじゃが選択される
 		if (count < 3) {
 			try {
-				Scanner scan = new Scanner(System.in);
-				this.chMonster = scan.nextInt();
 				if (!(chMonster == 1 || chMonster == 2)) {
 					System.out.println(mo.name + "：１　か" + ota.name + "：２　を選んでね！");
 					count++;
