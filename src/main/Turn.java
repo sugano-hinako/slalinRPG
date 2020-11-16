@@ -23,7 +23,7 @@ public class Turn {
 			System.out.println("▼ターン" + count);
 			//何をするかの指定
 			pl.setAction();
-			pl.actionName();
+			//pl.actionName();
 			pl.action();
 			if (pl.action == 1) {
 				pl.choiceMonster();
