@@ -13,6 +13,6 @@ public abstract class Monster {
 
 	//attack()を抽象メソッドとして宣言
 	//敵ごとに攻撃方法を指定する
-	public abstract int attack(Player p);
+	public abstract void attack(Player p);
 
 }

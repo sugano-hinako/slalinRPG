@@ -15,8 +15,11 @@ public class MomonjyaTest {
 	public void testMomonjyaAttack() {
 		Momonjya mo = new Momonjya('X');
 		Player p = new Player();
-		int atdmg = mo.attack(p);
-		assertEquals(da,atdmg);
+		int beforeHp = p.hp;
+		mo.attack(p);
+		int afterHp = p.hp;
+		boolean actual = beforeHp > afterHp;
+		assertEquals(true,actual);
 	}
 
 }
