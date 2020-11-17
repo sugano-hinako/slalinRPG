@@ -62,9 +62,8 @@ public class Player {
 		} while (!isNumber(action));
 		return this.action;
 	}
-//TODO 繰り返しの動作がおかしい
-	//テストするにあたってprivateからpublicに変更
-	public boolean isNumber(int action) {
+
+	private boolean isNumber(int action) {
 		//3回以上間違えたら強制的ににげるが選択される
 		if (count < 3) {
 			if (!(action == 1 || action == 2)) {
@@ -73,7 +72,6 @@ public class Player {
 				return false;
 			}
 			return true;
-
 		} else {
 			this.action = 2;
 			return true;
@@ -95,30 +93,31 @@ public class Player {
 	}
 
 	//どう攻撃するかを選択
-	public void setChoice() {
+	public int setChoice() {
 		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("何でたたかう？");
 			System.out.println("剣でこうげき：１　たいあたり：２");
-			this.choice = scan.nextInt();
-		} while (!isNumber2());
-	}
-
-	private boolean isNumber2() {
-		//3回以上間違えたら強制的にたいあたりが選択される
-		if (count < 3) {
 			try {
-				if (!(choice == 1 || choice == 2)) {
-					System.out.println("剣でこうげき：１　か　たいあたり：２　を選んでね！");
-					count++;
-					return false;
-				}
-				return true;
+				this.choice = scan.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("数値を入力してね！");
 				count++;
+			}
+		} while (!isNumber2(choice));
+		return this.choice;
+	}
+
+	private boolean isNumber2(int choice) {
+		//3回以上間違えたら強制的にたいあたりが選択される
+		if (count < 3) {
+
+			if (!(choice == 1 || choice == 2)) {
+				System.out.println("剣でこうげき：１　か　たいあたり：２　を選んでね！");
+				count++;
 				return false;
 			}
+			return true;
 		} else {
 			this.choice = 2;
 			return true;
@@ -145,30 +144,30 @@ public class Player {
 	public int chMonster;
 
 	//どちらのモンスターにこうげきするか決める
-	public void choiceMonster() {
+	public int choiceMonster() {
 		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("どのモンスターをこうげきする？");
 			System.out.println("▼" + mo.name + "：１" + "  " + "▼" + ota.name + "：２");
-			this.chMonster = scan.nextInt();
-		} while (!isNumber3());
-	}
-
-	private boolean isNumber3() {
-		//3回以上間違えたら強制的にももんじゃが選択される
-		if (count < 3) {
 			try {
-				if (!(chMonster == 1 || chMonster == 2)) {
-					System.out.println(mo.name + "：１　か" + ota.name + "：２　を選んでね！");
-					count++;
-					return false;
-				}
-				return true;
+				this.chMonster = scan.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("数値を入力してね！");
 				count++;
+			}
+		} while (!isNumber3(chMonster));
+		return this.chMonster;
+	}
+
+	private boolean isNumber3(int chMonster) {
+		//3回以上間違えたら強制的にももんじゃが選択される
+		if (count < 3) {
+			if (!(chMonster == 1 || chMonster == 2)) {
+				System.out.println(mo.name + "：１　か" + ota.name + "：２　を選んでね！");
+				count++;
 				return false;
 			}
+			return true;
 		} else {
 			this.chMonster = 2;
 			return true;
