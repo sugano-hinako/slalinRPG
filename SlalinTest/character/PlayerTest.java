@@ -67,6 +67,7 @@ public class PlayerTest {
 	}
 	*/
 //引数countのテスト
+	/*
 	@Test
 	public void testIsNumberCaseCount1() {
 		Player pl = new Player();
@@ -85,20 +86,27 @@ public class PlayerTest {
 		boolean isNum = pl.isNumber(-1);
 		assertEquals(false,isNum);
 	}
+	*/
 
 	//引数に数値以外を入れるテストをしたい
+	@Test
+	public void testIsNumberCase4() {
+		Player pl = new Player();
+	}
 	//
 
 	//actionNameのテスト
 	@Test
 	public void testActionName1() {
 		Player pl = new Player();
+		pl.action = 1;
 		String acName = pl.actionName(1);
 		assertEquals("たたかう！", acName);
 	}
 	@Test
 	public void testActionName2() {
 		Player pl = new Player();
+		pl.action = 2;
 		String acName = pl.actionName(2);
 		assertEquals("にげる！", acName);
 	}
