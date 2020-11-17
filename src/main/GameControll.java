@@ -21,18 +21,21 @@ public class GameControll {
 	Scanner scan = new Scanner(System.in);
 
 	//ゲームスタート
-	public void start() {
+	public String start() {
 		System.out.println(this.plSlalin.name + "の冒険スタート！");
 		System.out.println("※Enterキーを押すと進みます");
 		scan.nextLine();
 		System.out.println(this.plSlalin.name + "は歩いている");
 		scan.nextLine();
+		return this.plSlalin.name + "の冒険スタート！\n" + "※Enterキーを押すと進みます\n" +
+		this.plSlalin.name + "は歩いている";
 	}
 
 	//なんのモンスターが出てきたか表示する
-	public void showMonster() {
+	public String showMonster() {
 		System.out.println(this.moMomonjya.name + "　と　" + this.moOtaota.name + "がとびだしてきた！！");
 		scan.nextLine();
+		return this.moMomonjya.name + "　と　" + this.moOtaota.name + "がとびだしてきた！！";
 	}
 
 }
