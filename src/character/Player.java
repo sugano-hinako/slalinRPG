@@ -15,7 +15,7 @@ public class Player {
 	}
 
 	public String run() {
-		//System.out.println(this.name + "は逃げ出した！");
+		System.out.println(this.name + "は逃げ出した！");
 		return this.name + "は逃げ出した！";
 	}
 
@@ -24,7 +24,7 @@ public class Player {
 		//System.out.println("その後" + this.name + "の姿を見たものは誰もいなかった…");
 		//System.out.println("- GAMEOVER -");
 		return this.name + "は負けてしまった、\nその後"
-		+ this.name + "の姿を見たものは誰もいなかった…\n- GAMEOVER -";
+				+ this.name + "の姿を見たものは誰もいなかった…\n- GAMEOVER -";
 	}
 
 	public void swordAttack(Monster m) {
@@ -53,26 +53,27 @@ public class Player {
 		do {
 			System.out.println("何をしますか？");
 			System.out.println("たたかう：１　にげる：２");
-			return this.action = scan.nextInt();
-		} while (!isNumber(action));
-	}
-
-	//テストするにあたってprivateからpublicに変更
-	public boolean isNumber(int count) {
-		//3回以上間違えたら強制的ににげるが選択される
-		if (count < 3) {
 			try {
-				if (!(action == 1 || action == 2)) {
-					System.out.println("たたかう：１　か　にげる：２を選んでね！");
-					count++;
-					return false;
-				}
-				return true;
+				this.action = scan.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("数値を入力してね！");
 				count++;
+			}
+		} while (!isNumber(action));
+		return this.action;
+	}
+//TODO 繰り返しの動作がおかしい
+	//テストするにあたってprivateからpublicに変更
+	public boolean isNumber(int action) {
+		//3回以上間違えたら強制的ににげるが選択される
+		if (count < 3) {
+			if (!(action == 1 || action == 2)) {
+				System.out.println("たたかう：１　か　にげる：２を選んでね！");
+				count++;
 				return false;
 			}
+			return true;
+
 		} else {
 			this.action = 2;
 			return true;
